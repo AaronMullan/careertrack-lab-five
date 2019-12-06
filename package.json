@@ -1,0 +1,28 @@
+{
+  "name": "in-class-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "npm run test -- --watchAll --coverage",
+    "lint": "eslint **/*.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.7.13",
+    "node-fetch": "^2.6.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "eslint": "^6.7.2",
+    "eslintrc": "^1.0.6",
+    "jest": "^24.9.0"
+  }
+}
