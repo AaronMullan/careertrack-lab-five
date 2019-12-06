@@ -20,7 +20,7 @@ describe('Band Model', () => {
         drums: 'Bill Ward'
       });
       const { errors } = band.validateSync();
-      expect(errors.can_count_to_four.message).toEqual('Path `can_count_to_four` is required.');
+      expect(errors.canCountToFour.message).toEqual('Path `canCountToFour` is required.');
     });
   });
 })
