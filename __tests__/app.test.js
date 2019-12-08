@@ -56,7 +56,7 @@ describe('application routes', () => {
         });
       });
   });
-  it('can find all bands', async() => {
+  it('has a get route to update one band by id', async() => {
     const band = await Band.create({
       name: 'Black Sabbath',
       drums: 'Bill Ward',
@@ -65,7 +65,22 @@ describe('application routes', () => {
       canCountToFour: true
     });
     return request(app)
-      .get('/band')
+      .put(`/count/${band._id}/update`)
+      .then(res => {
+        expect(res.body).toEqual({
+          __v: expect.any(Number),
+          _id: expect.any(String),
+          name: 'Black Sabbath',
+          drums: 'Bill Ward',
+          bass: 'Geezer Butler',
+          guitar: 'Toni Iommi',
+          canCountToFour: false
+        });
+      });
+  });
+  it('can find all bands', async() => {
+    return request(app)
+      .get('/bands')
       .then(res => {
         expect(res.body[0]).toEqual({
           __v: expect.any(Number),
@@ -75,6 +90,22 @@ describe('application routes', () => {
           bass: 'Geezer Butler',
           guitar: 'Toni Iommi',
           canCountToFour: true
+        });
+      });
+  });
+  it('can delete a band', async() => {
+    const band = await Band.create({
+      name: 'Black Sabbath Too',
+      drums: 'Bill Ward',
+      bass: 'Geezer Butler',
+      guitar: 'Toni Iommi',
+      canCountToFour: true
+    });
+    return request(app)
+      .put(`/delete/${band._id}/delete`)
+      .then(res => {
+        expect(res.body).toEqual({
+         
         });
       });
   });
