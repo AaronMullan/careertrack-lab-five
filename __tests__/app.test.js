@@ -113,7 +113,7 @@ describe('application routes', () => {
       canCountToFour: true
     });
     return request(app)
-      .put(`/delete/${band._id}/delete`)
+      .delete(`/delete/${band._id}`)
       .then(res => {
         expect(res.body).toEqual({
          
