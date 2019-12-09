@@ -1,12 +1,17 @@
 require('dotenv').config();
 require('../lib/utils/connect')();
 const request = require('supertest');
+const connect = require('../lib/utils/connect.js')
 const app = require('../lib/app');
 const Band = require('../Band.js');
 const mongoose = require('mongoose');
 
 describe('application routes', () => {
   it('has a home route that says hello everyone', () => {
+
+    beforeAll(() => {
+      connect();
+    });
 
     afterAll(() => {
       return mongoose.connection.close();
