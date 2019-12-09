@@ -23,5 +23,6 @@ describe('Band Model', () => {
       expect(errors.canCountToFour.message).toEqual('Path `canCountToFour` is required.');
     });
   });
+  
 })
 ;

@@ -3,9 +3,15 @@ require('../lib/utils/connect')();
 const request = require('supertest');
 const app = require('../lib/app');
 const Band = require('../Band.js');
+const mongoose = require('mongoose');
 
 describe('application routes', () => {
   it('has a home route that says hello everyone', () => {
+
+    afterAll(() => {
+      return mongoose.connection.close();
+    });
+
     return request(app)
       .get('/')
       .then(res => {
@@ -109,4 +115,5 @@ describe('application routes', () => {
         });
       });
   });
+ 
 });
